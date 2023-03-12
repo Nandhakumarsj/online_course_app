@@ -168,7 +168,7 @@ def show_exam_result(request, course_id, submission_id):
     total = 0
     for choice in choices:
         total+=choice.question.grade_point
-        if choice.is_correct and choice.question.is_get_score(choices) and 'correct' == is_get_score(course, choices)[1]:
+        if choice.is_correct and choice.question.is_get_score(choices):
             score+=choice.question.grade_point
     try:
         total_score = int(score/total * 100)

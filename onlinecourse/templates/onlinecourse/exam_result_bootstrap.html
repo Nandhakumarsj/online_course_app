@@ -64,8 +64,9 @@
                                 <p class='text-danger'>Wrong answer: {{choice_text}}</p>
                             {% elif 'notselected' == option and id == choice.id %}
                                 <p class='text-warning'>Not selected: {{choice_text}}</p>
-                            {% endif %}
-                        {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                                <p class="text-dark">{{choice.choice_text}}</p>
                         {% endfor %}
                     </div>
                 </div>
