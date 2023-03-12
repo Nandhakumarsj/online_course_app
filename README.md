@@ -3,6 +3,8 @@
 
 An `onlinecourse` app has already been provided in this repo upon which you will be adding a new assesement feature.
 
+- Make sure to create a admin user before involving in manipulation of the database 
+
 - - This App is developed based on the principle of the below diagram to ensure the integrity of this web application.
 - - Depends on your deployment, you may choose any SQL database Django supported such as SQLite3, PostgreSQL, and MySQL (default is SQLite3)
 
