@@ -147,7 +147,7 @@ def is_get_score(course, selected_ids):
         flag = True
         for current_choice in question.choice_set.all():
             for selected_choice in selected_ids:
-                if question.is_get_score(selected_ids) and selected_choice.id == current_choice.id and selected_choice.choice_text == current_choice.choice_text:
+                if question.is_get_score(selected_ids) and selected_choice.id == current_choice.id and current_choice.is_correct:
                     to_return.append((current_choice.id, 'correct', current_choice.choice_text))
                     flag = False
                     
@@ -168,7 +168,7 @@ def show_exam_result(request, course_id, submission_id):
     total = 0
     for choice in choices:
         total+=choice.question.grade_point
-        if choice.is_correct and choice.question.is_get_score(choices):
+        if choice.is_correct and choice.question.is_get_score(choices) and 'correct' == is_get_score(course, choices)[1]:
             score+=choice.question.grade_point
     try:
         total_score = int(score/total * 100)
