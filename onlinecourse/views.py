@@ -144,17 +144,20 @@ def extract_answers(request):
 def is_get_score(course, selected_ids):
     to_return = []
     for question in course.question_set.all():
+        flag = True
         for current_choice in question.choice_set.all():
             for selected_choice in selected_ids:
-                if question.is_get_score(selected_ids) and selected_choice.id == current_choice.id:
+                if question.is_get_score(selected_ids) and selected_choice.id == current_choice.id and selected_choice.choice_text == current_choice.choice_text:
                     to_return.append((current_choice.id, 'correct', current_choice.choice_text))
+                    flag = False
                     
                 elif selected_choice.id == current_choice.id and not selected_choice.is_correct:
                     to_return.append((current_choice.id, 'wrong', current_choice.choice_text))
                     
-                elif selected_choice.id == current_choice.id and not question.is_get_score(selected_ids) and selected_choice.is_correct:
+                elif selected_choice.id == current_choice.id and not question.is_get_score(selected_ids):
                     to_return.append((current_choice.id, 'notselected', current_choice.choice_text))
                 
+                    
     return to_return
 
 def show_exam_result(request, course_id, submission_id):
@@ -173,7 +176,6 @@ def show_exam_result(request, course_id, submission_id):
         total_score = 0
     context = {
         'course':course,
-        'selected_ids':choices,
         'grade':total_score,
         'ans':is_get_score(course, choices),
     }

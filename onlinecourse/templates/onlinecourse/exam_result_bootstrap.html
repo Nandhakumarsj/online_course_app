@@ -58,17 +58,14 @@
                     <div class='card-body'>
                         {% for choice in question.choice_set.all %}
                             {% for id, option, choice_text in ans %}
-                                {% if 'correct' == option and id == choice.id and choice_text == choice.choice_text %}
+                            {% if 'correct' == option and id == choice.id %}
                                 <p class= 'text-success'>Correct answer: {{choice_text}}</p>
-                                    {{continue}}
-                                {% elif 'wrong' == option and id == choice.id %}
+                            {% elif 'wrong' == option and id == choice.id %}
                                 <p class='text-danger'>Wrong answer: {{choice_text}}</p>
-                                    {{continue}}
-                                {% elif 'notselected' == option and id == choice.id %}
+                            {% elif 'notselected' == option and id == choice.id %}
                                 <p class='text-warning'>Not selected: {{choice_text}}</p>
-                                    {{continue}}
-                                {% endif %}
-                            {% endfor %}
+                            {% endif %}
+                        {% endfor %}
                         {% endfor %}
                     </div>
                 </div>
