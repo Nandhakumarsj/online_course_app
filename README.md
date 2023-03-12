@@ -8,6 +8,6 @@
 - It manage database at very high speed as it is integrated with default sqlite database
 - It is stylized enough to make user interface quite attractive and responsive
 - It involves Three core pages
- ###**Login page**
- ###**Registration page**
- ###**Course List page**
+ ### **Login page**
+ ### **Registration page**
+ ### **Course List page**
