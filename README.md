@@ -1,4 +1,4 @@
-**Note**
+**Note:-**
 Make sure to create a admin user before involving in manipulation of the database 
 
 - - This App is developed based on the principle of the below diagram to ensure the integrity of this web application.
