@@ -1,0 +1,6 @@
+#Editor
+.vscode/
+
+#Cache
+myproject/__pycache__/
+onlinecourse/__pycache__
